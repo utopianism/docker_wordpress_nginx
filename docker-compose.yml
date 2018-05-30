@@ -28,6 +28,8 @@ services:
 
 
     wordpress:
+        depends_on:
+           - mysql
         image: wordpress:fpm
         ports:
             - '9000:9000'
@@ -37,6 +39,4 @@ services:
            WORDPRESS_DB_HOST: mysql:3306
            WORDPRESS_DB_USER: wordpress
            WORDPRESS_DB_PASSWORD: wordpress
-        links:
-            - mysql
         restart: always
